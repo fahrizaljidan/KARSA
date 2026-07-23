@@ -3,59 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  
-  <!-- Anti Cache & PWA Icons -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  
   <title>KARSA Absensi Online</title>
+
+  <!-- PWA & Apple Icons agar saat Tambah ke Utama Tampil Logo KARSA -->
+  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
+  <link rel="apple-touch-icon-precomposed" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
+  <link rel="shortcut icon" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
+  
+  <meta name="theme-color" content="#0d6efd">
+  <meta name="apple-mobile-web-app-title" content="KARSA Absensi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Inject PWA Web Manifest secara In-Line -->
+  <script>
+    (function() {
+      var logoUrl = "https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt";
+      var manifestData = {
+        "name": "KARSA Absensi Online",
+        "short_name": "KARSA",
+        "start_url": "./",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#0d6efd",
+        "icons": [
+          { "src": logoUrl, "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+          { "src": logoUrl, "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+        ]
+      };
+      var stringManifest = JSON.stringify(manifestData);
+      var blob = new Blob([stringManifest], {type: 'application/json'});
+      var manifestURL = URL.createObjectURL(blob);
+      var link = document.createElement('link');
+      link.rel = 'manifest';
+      link.href = manifestURL;
+      document.head.appendChild(link);
+    })();
+  </script>
+
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      text-align: center;
-      background: #f8f9fa;
+    html, body {
       margin: 0;
-      padding: 60px 20px;
-      color: #333;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f4f6f9;
     }
-    .loader {
-      border: 4px solid #e9ecef;
-      border-top: 4px solid #0d6efd;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      animation: spin 0.8s linear infinite;
-      margin: 20px auto;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .btn-open {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 24px;
-      background: #0d6efd;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
     }
   </style>
 </head>
 <body>
 
-  <div class="loader"></div>
-  <h3>Membuka KARSA Absensi...</h3>
-  <p style="font-size: 13px; color: #666;">Menghubungkan ke sistem...</p>
-  
-  <script>
-    var GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztNTbARko_1GH_IU_o0g1ia9gxXPaa3dHwEVW6iqrdXXEd3wzDhDJocgj4gIqne6PfKQ/exec";
-
-    // Langsung alihkan ke Web App asli tanpa memicu memori terblokir iframe
-    window.location.replace(GOOGLE_SCRIPT_URL);
-  </script>
+  <iframe 
+    id="karsaFrame"
+    src="https://script.google.com/macros/s/AKfycbztNTbARko_1GH_IU_o0g1ia9gxXPaa3dHwEVW6iqrdXXEd3wzDhDJocgj4gIqne6PfKQ/exec" 
+    allow="geolocation; camera; microphone" 
+    sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-modals">
+  </iframe>
 
 </body>
 </html>
