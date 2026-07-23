@@ -2,40 +2,23 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KARSA Absensi Online</title>
 
-  <!-- Favicon & PWA Icons Menggunakan Logo Baru -->
-  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  <link rel="apple-touch-icon-precomposed" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  <link rel="shortcut icon" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  
-  <meta name="theme-color" content="#0d6efd">
-  <meta name="apple-mobile-web-app-title" content="KARSA">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: #f4f6f9;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+  <script>
+    // Pastikan ganti URL di bawah dengan URL Web App Google Apps Script Anda (akhiran /exec)
+    var GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztNTbARko_1GH_IU_o0g1ia9gxXPaa3dHwEVW6iqrdXXEd3wzDhDJocgj4gIqne6PfKQ/exec";
+    
+    // Alihkan langsung agar tidak diblokir Safari iOS / Layar Putih
+    window.location.replace(GOOGLE_SCRIPT_URL);
+  </script>
 </head>
-<body>
+<body style="font-family: sans-serif; text-align: center; padding-top: 50px; background: #f4f6f9;">
+  <h3>Mengalihkan ke Aplikasi KARSA...</h3>
+  <p>Jika halaman tidak berpindah otomatis, <a id="appLink" href="#">klik di sini</a>.</p>
 
-  <!-- Pastikan mengisi link Google Apps Script Web App (/exec) Anda di bawah ini -->
-  <iframe src="https://script.google.com/macros/s/AKfycbztNTbARko_1GH_IU_o0g1ia9gxXPaa3dHwEVW6iqrdXXEd3wzDhDJocgj4gIqne6PfKQ/exec" allow="geolocation" style="width: 100%; height: 100vh; border: none;"></iframe>
-
+  <script>
+    document.getElementById("appLink").href = GOOGLE_SCRIPT_URL;
+  </script>
 </body>
 </html>
