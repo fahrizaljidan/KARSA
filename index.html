@@ -3,43 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>KARSA Absensi Online</title>
-
-  <!-- Favicon & Apple Touch Icons untuk Layar HP -->
-  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  <link rel="apple-touch-icon-precomposed" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
-  <link rel="shortcut icon" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
   
-  <meta name="theme-color" content="#0d6efd">
-  <meta name="apple-mobile-web-app-title" content="KARSA Absensi">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
+  <!-- Anti Cache & PWA Icons -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/11cXExGWBx-9_ZW3rTbOMjrXmKzXyQODt">
+  
+  <title>KARSA Absensi Online</title>
   <style>
-    html, body {
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      text-align: center;
+      background: #f8f9fa;
       margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: #ffffff;
+      padding: 60px 20px;
+      color: #333;
     }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
+    .loader {
+      border: 4px solid #e9ecef;
+      border-top: 4px solid #0d6efd;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      animation: spin 0.8s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .btn-open {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: #0d6efd;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
 
-  <iframe 
-    src="https://script.google.com/macros/s/AKfycbztNTbARko_1GH_IU_o0g1ia9gxXPaa3dHwEVW6iqrdXXEd3wzDhDJocgj4gIqne6PfKQ/exec" 
-    allow="geolocation; camera; microphone" 
-    sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-modals">
-  </iframe>
+  <div class="loader"></div>
+  <h3>Membuka KARSA Absensi...</h3>
+  <p style="font-size: 13px; color: #666;">Menghubungkan ke sistem...</p>
+  
+  <script>
+    var GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxia9gxXPaa3dHwEVW6iqrdXXEd3wDhDjocgj4gIqne6PFKQ/exec";
+
+    // Langsung alihkan ke Web App asli tanpa memicu memori terblokir iframe
+    window.location.replace(GOOGLE_SCRIPT_URL);
+  </script>
 
 </body>
 </html>
